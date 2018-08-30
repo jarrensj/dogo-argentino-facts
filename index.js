@@ -2,7 +2,6 @@
 /* eslint-disable  no-console */
 
 const Alexa = require('ask-sdk-core');
-const cookbook = require('./alexa-cookbook.js');
 
 //=========================================================================================================================================
 //TODO: The items below this comment need your attention.
@@ -48,7 +47,7 @@ const GetNewFactHandler = {
         && request.intent.name === 'GetNewFactIntent');
   },
   handle(handlerInput) {
-    const randomFact = cookbook.getRandomItem(data);
+    const randomFact = getRandomItem(data);
     const speechOutput = GET_FACT_MESSAGE + randomFact;
 
     return handlerInput.responseBuilder
@@ -141,3 +140,23 @@ exports.handler = skillBuilder
   )
   .addErrorHandlers(ErrorHandler)
   .lambda();
+
+function getRandomItem(arrayOfItems) {
+  // can take an array, or a dictionary
+  if (Array.isArray(arrayOfItems)) {
+    // the argument is an array []
+    let i = 0;
+    i = Math.floor(Math.random() * arrayOfItems.length);
+    return (arrayOfItems[i]);
+  }
+
+  if (typeof arrayOfItems === 'object') {
+    // argument is object, treat as dictionary
+    const result = {};
+    const key = this.getRandomItem(Object.keys(arrayOfItems));
+    result[key] = arrayOfItems[key];
+    return result;
+  }
+  // not an array or object, so just return the input
+  return arrayOfItems;
+}
