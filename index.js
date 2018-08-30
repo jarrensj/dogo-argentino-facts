@@ -3,41 +3,24 @@
 
 const Alexa = require('ask-sdk-core');
 
-//=========================================================================================================================================
-//TODO: The items below this comment need your attention.
-//=========================================================================================================================================
-
-const SKILL_NAME = 'Space Facts';
+const SKILL_NAME = 'Dogo Argentino Facts';
 const GET_FACT_MESSAGE = 'Here\'s your fact: ';
-const HELP_MESSAGE = 'You can say tell me a space fact, or, you can say exit... What can I help you with?';
+const HELP_MESSAGE = 'You can say tell me a dogo argentino fact, or, you can say exit... What can I help you with?';
 const HELP_REPROMPT = 'What can I help you with?';
-const FALLBACK_MESSAGE = 'The Space Facts skill can\'t help you with that.  It can help you discover facts about space if you say tell me a space fact. What can I help you with?';
+const FALLBACK_MESSAGE = 'The Dogo Argentino Facts skill can\'t help you with that.  It can help you learn more about the dogo argentino if you say tell me a dogo argentino fact. What can I help you with?';
 const FALLBACK_REPROMPT = 'What can I help you with?';
 const STOP_MESSAGE = 'Goodbye!';
 
-//=========================================================================================================================================
-//TODO: Replace this data with your own.  You can find translations of this data at http://github.com/alexa/skill-sample-node-js-fact/lambda/data
-//=========================================================================================================================================
-
 const data = [
-  'A year on Mercury is just 88 days long.',
-  'Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.',
-  'Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.',
-  'On Mars, the Sun appears about half the size as it does on Earth.',
-  'Earth is the only planet not named after a god.',
-  'Jupiter has the shortest day of all the planets.',
-  'The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.',
-  'The Sun contains 99.86% of the mass in the Solar System.',
-  'The Sun is an almost perfect sphere.',
-  'A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.',
-  'Saturn radiates two and a half times more energy into space than it receives from the sun.',
-  'The temperature inside the Sun can reach 15 million degrees Celsius.',
-  'The Moon is moving approximately 3.8 cm away from our planet every year.',
+  'The Dogo Argentino was developed by Dr. Antonio Nores Martinez in 1928. Dr. Antonio Nores Martinez set out to breed a big game hunting dog that could also function as a loyal pet and guardian.',
+  'Dr. Antonio Nores Martinez choose the Cordoba Fighting Dog as the base of the dog and bred with a Pointer to give the dog a keen sense of smell, the Boxer for its vivacity and gentleness, the Great Dane for its size, the Bull Terrier for its fearlessness, the Bulldog for its chest and boldness, the Irish Wolfhound for its instinct as a hunter, the Dogo de Bordeaux for its powerful jaws, the Great Pyrenees for its white coat, and the Spanish Mastiff because of its power.',
+  'The Dogo Argentino is a working breed. The Dogo Argentino are pack hunting dogs bred for the pursuit of big game but they can also function as service animals.',
+  'The Dogo Argentino has a temperament of intelligence, friendly, cheerful, loyal, and humble. The Dogo Argentino should never be aggressive.',
+  'The Dogo Argentino has a white, short, plain, and smooth coat with an average length of 1/2 to 3/4 of an inch.',
+  'The Dogo Argentino is completely white. To comply with breed standards, the Dogo Argentino may have one black patch near the eye as long as it does not cover more than 10% of the head. It does not disqualify but the dog without a spot is preferred. A spot anywhere else on the body can be a cause of disqualification in competitions.',
+  'The Dogo Argentino\'s height ranges from 24 to 27 inches for a male and 23.5 to 26 inches for a female. The weight ranges from around 80 to 100 pounds.',
+  'The Dogo Argentino has a life expectancy of 10-12 years.'
 ];
-
-//=========================================================================================================================================
-//Editing anything below this line might break your skill.
-//=========================================================================================================================================
 
 const GetNewFactHandler = {
   canHandle(handlerInput) {
